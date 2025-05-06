@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ADD NEW CUSTOMER</title>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(to bottom right, deepskyblue, lightcyan); min-height: 100vh; text-align: center;">
+<h1>ADD NEW CUSTOMER</h1>
+<form action="#" th:action="@{/customers/add}" th:object="${customer}" method="post">
+    <table border="1" align="center">
+        <tr><td style="background-color:#a0f0ff;"><p>First Name: <input type="text" th:field="*{firstName}" /></p></td></tr>
+        <tr><td style="background-color:#90e4fb;"><p>Last Name: <input type="text" th:field="*{lastName}" /></p></td></tr>
+        <tr><td style="background-color:#80d8f7;"><p>Email: <input type="text" th:field="*{email}" /></p></td></tr>
+        <tr><td style="background-color:#70ccf3;"><p>Boat License: <input type="text" th:field="*{boatLicense}" /></p></td></tr>
+        <tr><td style="background-color:#60c0ef;"><p>Country Code: <input type="text" th:field="*{countrycode}" /></p></td></tr>
+    </table>
+    <p><input type="submit" value="Save" /></p>
+</form>
+<a th:href="@{/customers}">Back to list</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Rental Event</title>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; text-align: center; background: linear-gradient(to bottom, peachpuff, orange); min-height: 100vh;">
+<h1>EDIT RENTAL EVENT</h1>
+<form th:action="@{/rentals/edit}" th:object="${rentalEvent}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <table align="center" border="1" style="background: linear-gradient(to bottom, #fff3e0, #ffcc80);">
+        <tr><td style=" background: transparent;">Boat ID: <input type="text" th:field="*{boat_Rented.id}" /></td></tr>
+        <tr><td style=" background: transparent;">Customer ID: <input type="text" th:field="*{customer_Renting.id}" /></td></tr>
+        <tr><td style=" background: transparent;">Rental Date: <input type="date" th:field="*{rentalDate}" /></td></tr>
+        <tr><td style=" background: transparent;">Return Date: <input type="date" th:field="*{returnDate}" /></td></tr>
+        <tr><td style=" background: transparent;">Total Cost: <input type="text" th:field="*{totalCost}" /></td></tr>
+        <tr><td style=" background: transparent;">Closed: <input type="checkbox" th:field="*{closed}" /></td></tr>
+    </table>
+    <p><input type="submit" value="Save" /></p>
+</form>
+<a th:href="@{/rentals}">Back to list</a>
+</body>
+</html>

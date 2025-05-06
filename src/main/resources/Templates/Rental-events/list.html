@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rental Events List</title>
+</head>
+<body style="
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, mediumpurple, lightcyan);
+            min-height: 100vh;
+            text-align: center;
+">
+<h1>RENTAL EVENTS LIST</h1>
+<a th:href="@{/rentals/add}">Add New Rental Event</a>
+<table border="1" align="center" style="background: linear-gradient(to bottom, lightcyan, mediumpurple)">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Boat</th>
+        <th>Customer</th>
+        <th>Rental Date</th>
+        <th>Return Date</th>
+        <th>Total Cost</th>
+        <th>Closed?</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rentalEvent : ${rentalEvents}">
+        <td th:text="${rentalEvent.id}"></td>
+        <td th:text="${rentalEvent.boat_Rented.brand} + ' ' + ${rentalEvent.boat_Rented.model}"></td>
+        <td th:text="${rentalEvent.customer_Renting.firstName} + ' ' + ${rentalEvent.customer_Renting.lastName}"></td>
+        <td th:text="${rentalEvent.rentalDate}"></td>
+        <td th:text="${rentalEvent.returnDate}"></td>
+        <td th:text="${rentalEvent.totalCost}"></td>
+        <td th:text="${rentalEvent.isClosed}"></td>
+        <td>
+            <a th:href="@{/rentals/{id2}(id2=${rentalEvent.id})}">Details</a> |
+            <a th:href="@{/rentals/edit/{id2}(id2=${rentalEvent.id})}">Edit</a> |
+            <a th:href="@{/rentals/delete/{id2}(id2=${rentalEvent.id})}">Delete</a> |
+            <a th:href="@{/rentals/return/{id2}(id2=${rentalEvent.id})}">Return</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

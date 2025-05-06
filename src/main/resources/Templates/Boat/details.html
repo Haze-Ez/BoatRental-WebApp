@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Boat Details</title>
+</head>
+
+<body style="
+             margin: 0;
+             background: linear-gradient(to bottom right,deepskyblue,lightcyan);
+             min-height: 100vh;
+             font-family: 'Segoe UI',sans-serif;
+
+">
+    <h1 align="center">Boat Details</h1>
+    <p th:if="${errorMessage}" th:text="${errorMessage}" style="color:red;"></p>
+    <div th:unless="${errorMessage}">
+        <table style="background: linear-gradient(to bottom,lightcyan,deepskyblue)" border="1" align="center" >
+            <tr>
+                <th>ID </th>
+                <th>Brand </th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Seats</th>
+                <th>License Plate</th>
+                <th>Available </th>
+            </tr>
+            <tr>
+            <td style="text-align: center"><span th:text="${boat.id}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.brand}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.model}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.pricePerDay}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.seats}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.plateNumber}"></span></td>
+            <td style="text-align: center"><span th:text="${boat.available}"></span></td>
+            </tr>
+        </table>
+            <a th:href="@{/boats}">Back to list</a>
+
+    </div>
+
+</body>
+</html>

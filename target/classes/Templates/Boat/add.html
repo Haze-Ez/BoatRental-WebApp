@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <title>ADD NEW BOAT</title>
+</head>
+
+<body style="
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, deepskyblue, lightcyan);
+    min-height: 100vh;
+    text-align: center;
+">
+
+
+    <h1>ADD NEW BOAT</h1>
+
+    <form action="#" th:action="@{/boats/add}" th:object="${boat}" method="post">
+
+        <table border="1" align="center" >
+
+            <tr><td style="background-color:#a0f0ff;">Brand: <input type="text" th:field="*{brand}"  /></td></tr>
+            <tr><td style="background-color:#90e4fb;">Model: <input type="text" th:field="*{model}" /></td></tr>
+            <tr><td style="background-color:#80d8f7;">Price Daily: <input type="text" th:field="*{pricePerDay}" /></td></tr>
+            <tr><td style="background-color:#70ccf3;">Seats: <input type="text" th:field="*{seats}" /></td></tr>
+            <tr><td style="background-color:#60c0ef;">Plate Number: <input type="text" th:field="*{plateNumber}" /></td></tr>
+            <tr><td style="background-color:#50b4eb;">Availabile:<input type="checkbox" th:field="*{available}"/></td></tr>
+
+        </table>
+                <p><input type="submit" value="Save" /></p>
+    </form>
+    <a th:href="@{/boats}">Back to list</a>
+
+</body>
+
+</html>

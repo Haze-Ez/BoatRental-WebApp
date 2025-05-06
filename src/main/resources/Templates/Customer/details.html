@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Details</title>
+</head>
+<body style="margin: 0; background: linear-gradient(to bottom right, deepskyblue, lightcyan); min-height: 100vh; font-family: 'Segoe UI', sans-serif;">
+<h1 align="center">Customer Details</h1>
+<p th:if="${errorMessage}" th:text="${errorMessage}" style="color:red;"></p>
+<div th:unless="${errorMessage}">
+    <table style="background: linear-gradient(to bottom, lightcyan, deepskyblue);" border="1" align="center">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Boat License</th>
+            <th>Country Code</th>
+        </tr>
+        <tr>
+            <td style="text-align: center"><span th:text="${customer.id}"></span></td>
+            <td style="text-align: center"><span th:text="${customer.firstName}"></span></td>
+            <td style="text-align: center"><span th:text="${customer.lastName}"></span></td>
+            <td style="text-align: center"><span th:text="${customer.email}"></span></td>
+            <td style="text-align: center"><span th:text="${customer.boatLicense}"></span></td>
+            <td style="text-align: center"><span th:text="${customer.countrycode}"></span></td>
+        </tr>
+    </table>
+    <a th:href="@{/customers}">Back to list</a>
+</div>
+</body>
+</html>

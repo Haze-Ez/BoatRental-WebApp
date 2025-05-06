@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rental Event Details</title>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(to bottom right, lavender, lightcyan); min-height: 100vh;">
+<h1 align="center">Rental Event Details</h1>
+<p th:if="${errorMessage}" th:text="${errorMessage}" style="color:red;"></p>
+<div th:unless="${errorMessage}">
+    <table border="1" align="center" style="background: linear-gradient(to bottom, white, lavenderblush);">
+        <tr>
+            <th>ID</th>
+            <th>Boat ID</th>
+            <th>Customer ID</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+            <th>Total Cost</th>
+            <th>Closed</th>
+        </tr>
+        <tr>
+            <td align="center"><span th:text="${rentalEvent.id}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.boat_Rented.id}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.customer_Renting.id}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.rentalDate}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.returnDate}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.totalCost}"></span></td>
+            <td align="center"><span th:text="${rentalEvent.closed}"></span></td>
+        </tr>
+    </table>
+    <p align="center"><a th:href="@{/rentals}">Back to list</a></p>
+</div>
+</body>
+</html>

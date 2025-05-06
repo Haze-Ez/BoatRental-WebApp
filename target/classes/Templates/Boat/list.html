@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Boats List</title>
+</head>
+<body style="
+            margin: 0;
+            font-family: 'Segoe UI',sans-serif;
+            background: linear-gradient(to bottom right,mediumpurple,lightcyan);
+            min-height: 100vh;
+            text-align: center;
+">
+<h1>BOATS LIST</h1>
+<a th:href="@{/boats/add}">Add New Boat</a>
+<table border="1" align="center" style="background: linear-gradient(to bottom,lightcyan,mediumpurple)">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Plate Number</th>
+        <th>Price Daily</th>
+        <th>Available?</th>
+        <th>Seats</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="boat : ${boats}">
+        <td th:text="${boat.id}"></td>
+        <td th:text="${boat.brand}"></td>
+        <td th:text="${boat.model}"></td>
+        <td th:text="${boat.plateNumber}"></td>
+        <td th:text="${boat.pricePerDay}"></td>
+        <td th:text="${boat.available}"></td>
+        <td th:text="${boat.seats}"></td>
+        <td>
+            <a th:href="@{/boats/{id2}(id2=${boat.id})}">Details</a> |
+            <a th:href="@{/boats/edit/{id2}(id2=${boat.id})}">Edit</a> |
+            <a th:href="@{/boats/delete/{id2}(id2=${boat.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
