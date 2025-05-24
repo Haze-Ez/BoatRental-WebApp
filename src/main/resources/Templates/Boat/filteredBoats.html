@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtered Boats</title>
+</head>
+<body>
+<h2>Filtered Boats</h2>
+
+<table border="1" align="center">
+    <thead>
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Seats</th>
+        <th>Price/Day</th>
+        <th>Available</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${#lists.isEmpty(boats)}">
+        <td colspan="5">No boats match your filter 😢</td>
+    </tr>
+    <tr th:each="boat : ${boats}">
+        <td th:text="${boat.brand}"></td>
+        <td th:text="${boat.model}"></td>
+        <td th:text="${boat.seats}"></td>
+        <td th:text="${boat.pricePerDay}"></td>
+        <td th:text="${boat.available ? 'Yes' : 'No'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a th:href="@{/boats}">Back to all boats</a></p> <br>
+<p><a th:href="@{/boats/filter}">Back to filter</a></p>
+</body>
+</html>
